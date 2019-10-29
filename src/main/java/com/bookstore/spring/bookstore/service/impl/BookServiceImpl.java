@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bookstore.spring.bookstore.domain.Book;
 import com.bookstore.spring.bookstore.repository.BookRepository;
 
+
 @Service
 public class BookServiceImpl implements BookService{
 	
@@ -18,5 +19,12 @@ public class BookServiceImpl implements BookService{
 	public List<Book> findAll() {
 		return (List<Book>) bookRepository.findAll();
 	}
+
+	
+	public Book findById(Long id) {
+		return bookRepository.findById(id).orElse(null);
+	}
+
+	
 
 }
